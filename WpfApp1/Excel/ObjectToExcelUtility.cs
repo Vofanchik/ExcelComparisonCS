@@ -32,7 +32,7 @@ namespace Business.Services.Excel
 			range.Value = json;
 			range.Style.WrapText = true;
 			range.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
-			this.ExcelService.AutoFit_All_Columns(ws);
+			//this.ExcelService.AutoFit_All_Columns(ws);
 			ws.Column(1).Width = 200;
 		}
 

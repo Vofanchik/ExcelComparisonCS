@@ -1,4 +1,5 @@
 ﻿using Business.Common;
+using System;
 using System.IO;
 using System.Windows;
 using Tests.Services;
@@ -49,20 +50,32 @@ namespace WpfApp1
 		private void btnCompare(object sender, RoutedEventArgs e)
 		{
 			if (string.IsNullOrEmpty(txtFileName1.Text)) {
-				MessageBox.Show("Can't compare because first text box is empty.");
+				MessageBox.Show("Первое поле пустое.");
 			}
 			if (string.IsNullOrEmpty(txtFileName2.Text)) {
-				MessageBox.Show("Can't compare because second text box is empty.");
+				MessageBox.Show("Второе поле пустое.");
 			}
-			compare(txtFileName1.Text, txtFileName2.Text);
+			compare(txtFileName1.Text, txtFileName2.Text, workSheetNumber.SelectedItem.ToString());
 		}
 
-		private void compare(string file1, string file2)
+		private void compare(string file1, string file2, string workSheetNumber)
 		{
-			var dirName = Path.GetDirectoryName(file1);
+			var workSheet = Int32.Parse(workSheetNumber);
+            var dirName = Path.GetDirectoryName(file1);
 			var excelTestService = new ExcelTestService(dirName);
-			var result = excelTestService.Compare(file1, file2, "Compare", dirName, "compare_errors.xlsx");
+			var result = excelTestService.Compare(file1, file2, "Compare", dirName, "compare_errors.xlsx", workSheet);
 			MessageBox.Show(result.Message);
 		}
-	}
+
+
+        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void txtFileName1_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
+    }
 }

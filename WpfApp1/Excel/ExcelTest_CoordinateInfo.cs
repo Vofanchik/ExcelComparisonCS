@@ -11,7 +11,7 @@ namespace Business.Models {
 		/// <summary>
 		/// The number of columns to compare
 		/// </summary>
-		public int expectedColumns { get; set; }
+		public int Columns { get; set; }
 		/// <summary>
 		/// The starting row for comparison
 		/// </summary>
@@ -19,10 +19,6 @@ namespace Business.Models {
 		/// <summary>
 		/// The number of rows to compare
 		/// </summary>
-		public int expectedRows { get; set; }
-
-		public string Name { get; set; }
-		public int actualColumns { get; set; }
-		public int actualRows { get; set; }
+		public int Rows { get; set; }
 	}
 }

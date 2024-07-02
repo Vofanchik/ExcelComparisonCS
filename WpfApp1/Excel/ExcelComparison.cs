@@ -9,8 +9,7 @@ namespace Business.Models {
 		public object Expected { get; set; }
 		//this is a bad pattern, but I'm leaving it
 		public bool ExpectedAndActual_AreEqual {
-			get
-			{
+			get {
 				if (this._expectedAndActual_AreCalculated) {
 					return this._expectedAndActual_AreEqual;
 				}
@@ -18,23 +17,11 @@ namespace Business.Models {
 					this._expectedAndActual_AreEqual = true;
 					return this._expectedAndActual_AreEqual;
 				}
-				if (this.Actual == null && this.Expected != null)
-				{
-					if (this.Expected.ToString() == "0")
-					{
-						this._expectedAndActual_AreEqual = true;
-						return this._expectedAndActual_AreEqual;
-					}
+				if (this.Actual == null && this.Expected != null) {
 					this._expectedAndActual_AreEqual = false;
 					return this._expectedAndActual_AreEqual;
 				}
-				if (this.Actual != null && this.Expected == null)
-				{
-					if (this.Actual.ToString() == "0")
-					{
-						this._expectedAndActual_AreEqual = true;
-						return this._expectedAndActual_AreEqual;
-					}
+				if (this.Actual != null && this.Expected == null) {
 					this._expectedAndActual_AreEqual = false;
 					return this._expectedAndActual_AreEqual;
 				}
